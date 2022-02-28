@@ -1,0 +1,8 @@
+<p>Số hiện tại: {{ count | async }}</p>
+<hr>
+<p>isLog: {{ isLogin }}</p>
+<hr>
+
+<button type="button" class="btn btn-success" (click)="_increment()">Tăng 1 đơn vị</button>&nbsp;
+<button type="button" class="btn btn-danger" (click)="_decrement()">Giảm 1 đơn vị</button>&nbsp;
+<button type="button" class="btn btn-dark" (click)="_reset()">Đặt lại</button>

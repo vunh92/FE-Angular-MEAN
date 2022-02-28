@@ -1,0 +1,56 @@
+<!-- <div class="row">
+    <div class="col-md-4" *ngFor="let i of array_product">
+      <div class="products">
+        <a routerLink="/san-pham/{{ i.slug }}.html">
+          <div *ngIf="i.img === '';then content else other_content"></div>
+          <ng-template #content>
+            <div class="products__img">
+              <img src="/assets/logo.png" class="img-fluid">
+            </div>
+          </ng-template>
+          <ng-template #other_content>
+            <div class="products__img">
+              <img src="{{i.img}}" class="img-fluid">
+            </div>
+          </ng-template>
+          <h3>{{ i.name }}</h3>
+          <p>Giá: <span class="price">{{ i.price | number:'1.2-2' }} đ</span></p>
+        </a>
+        <p>
+          <button type="button" class="btn btn-primary" (click)="add_to_cart(i._id, i.name, i.price, 1)">Add To Cart</button>
+        </p>
+      </div>
+    </div>
+</div> -->
+
+<div class="row">
+    <div class="col-lg-4 col-md-6 col-sm-6" *ngFor="let i of array_product">
+        <div class="products product__item">
+            <div class="product__item__pic set-bg" data-setbg="img/product/product-1.jpg">
+                <div *ngIf="i.img === '';then content else other_content"></div>
+                  <ng-template #content>
+                      <div class="products__img">
+                      <img src="/assets/logo.png" class="img-fluid">
+                      </div>
+                  </ng-template>
+                  <ng-template #other_content>
+                      <div class="products__img">
+                      <img src="{{i.img}}" class="img-fluid">
+                      </div>
+                  </ng-template>
+                <ul class="product__item__pic__hover">
+                    <li><a (click)="add_to_like(i._id, i.name, i.price, i.img)"><i class="fa fa-heart"></i></a></li>
+                    <!-- <li><a><i class="fa fa-retweet"></i></a></li> -->
+                    <li style="width: 20px;"></li>
+                    <li><a (click)="add_to_cart(i._id, i.name, i.price, 1, i.img)"><i class="fa fa-shopping-cart"></i></a></li>
+                </ul>
+            </div>
+            <a routerLink="/san-pham/{{ i.slug }}.html">
+                <div class="product__item__text">
+                    <h3>{{ i.name }}</h3>
+                    <h5 class="price" >{{ i.price | number:'1.0-2' }} đ</h5>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

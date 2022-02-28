@@ -1,0 +1,40 @@
+<!-- <form #login="ngForm" (ngSubmit)="get_data_Login(login.value)">
+    <h1>Login</h1>
+    <hr>
+    <div class="form-group">
+        <label for="username">Tên Đăng Nhập:</label>
+        <input type="text" class="form-control" placeholder="Nhập Tên Đăng Nhập" id="username" name="username" ngModel>
+    </div>
+    <div class="form-group">
+        <label for="password">Mật Khẩu:</label>
+        <input type="password" class="form-control" placeholder="Nhập Mật Khẩu" id="password" name="password" ngModel>
+    </div>
+    <button type="submit" class="btn btn-primary">Đăng nhập</button>
+</form> -->
+<p *ngIf="isAlert">
+    <ngb-alert [type]="isAlert.type" (closed)="close()">{{ isAlert.message }}</ngb-alert>
+</p>
+<form #login="ngForm" (ngSubmit)="get_data_Login(login.value)" class="login">
+    <div class="login__con">
+        <header class="head-form">
+            <h2>Log In</h2>
+            <p>login here using your username and password</p>
+        </header>
+        <div class="form-group">
+            <span class="login__input-item"> <i class="fa fa-user-circle"></i> </span>
+            <input class="login__input" type="text" placeholder="@UserName" id="username" name="username" ngModel>
+        </div>
+        <div class="form-group">
+            <span class="login__input-item"><i class="fa fa-key"></i></span>
+            <input class="login__input" type="password" placeholder="Password" id="password"  name="password" required ngModel>
+        </div>
+        <button type="submit" class="btn sign-up">Đăng nhập</button>
+        <!--   other buttons -->
+       <div class="other">
+            <button class="btn submits frgt-pass">Forgot Password</button>
+            <button class="btn submits sign-up">Sign Up 
+                <i class="fa fa-user-plus" aria-hidden="true"></i>
+            </button>
+        </div>
+    </div>
+</form>

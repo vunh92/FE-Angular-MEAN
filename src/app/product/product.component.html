@@ -1,0 +1,179 @@
+<!-- <div class="detail">
+    <div class="row">
+        <div class="col-md-5">
+            <img src="/assets/iphone.png" class="img-fluid">
+        </div>
+        <div class="col-md-7">
+            <div class="info">
+                <h1>{{ name }}</h1>
+                <p class="price">Giá: <span class="text-danger">{{ price| number:'1.2-2' }} đ</span></p>
+            </div>
+            <div class="cart">
+                <div class="input-group mb-3">
+                    <input type="number" class="form-control" value="1" min="1" max="1000">
+                    <div class="input-group-append">
+                      <button class="btn btn-primary" type="button">Thêm vào giỏ</button> 
+                      <button class="btn btn-danger" type="button">Mua ngay</button> 
+                    </div>
+                  </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- Product Details Section Begin -->
+<section class="product-details spad">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__pic">
+                    <div class="product__details__pic__item">
+                        <!-- <img class="product__details__pic__item--large img-fluid" src="/assets/iphone.png"> -->
+                        <div *ngIf="img === '';then content else other_content"></div>
+                            <ng-template #content>
+                                <div class="products__img">
+                                <img src="/assets/logo.png" class="product__details__pic__item--large img-fluid">
+                                </div>
+                            </ng-template>
+                            <ng-template #other_content>
+                                <div class="products__img">
+                                <img src="{{img}}" class="product__details__pic__item--large img-fluid">
+                                </div>
+                            </ng-template>
+                    </div>
+                    <div class="product__details__pic__slider owl-carousel" style="text-align: center;">
+                        <!-- <div class="col-md-3" *ngFor="let i of related__products.slice(0, 4)"></div> -->
+                        <img data-imgbigurl="/assets/product/product-1.jpg"
+                            src="/assets/product/product-1.jpg" class="col-md-2">
+                        <img data-imgbigurl="/assets/product/product-2.jpg"
+                            src="/assets/product/product-2.jpg" class="col-md-2">
+                        <img data-imgbigurl="/assets/product/product-3.jpg"
+                            src="/assets/product/product-3.jpg" class="col-md-2">
+                        <img data-imgbigurl="/assets/product/product-4.jpg"
+                            src="/assets/product/product-4.jpg" class="col-md-2">
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6">
+                <div class="product__details__text">
+                    <h3>{{ name }}</h3>
+                    <div class="product__details__rating">
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star"></i>
+                        <i class="fa fa-star-half-o"></i>
+                        <span>(18 reviews)</span>
+                    </div>
+                    <div class="product__details__price">{{ price| number:'1.0-2' }} đ</div>
+                    <p>Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Vestibulum ac diam sit amet quam
+                        vehicula elementum sed sit amet d Sed porttitor lectus nibh. Vestibulum ac diam sit amet
+                        quam vehicula elementum sed sit amet dui. Proin eget tortor risus.</p>
+                    <div class="product__details__quantity">
+                        <div class="quantity">
+                            <div class="pro-qty">
+                                <span class="dec qtybtn">-</span>
+                                <input type="text" value="1" #qty>
+                                <span class="inc qtybtn">+</span>
+                            </div>
+                        </div>
+                    </div>
+                    <a (click)="add_to_cart(qty.value)" class="product__details__add--cart"><i class="fa fa-plus"></i></a>
+                    <a (click)="add_to_like()"  class="product__details__add--like"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                    <ul>
+                        <li><b>Availability</b> <span>In Stock</span></li>
+                        <li><b>Shipping</b> <span>01 day shipping.</span></li>
+                        <li><b>Weight</b> <span>0.5 kg</span></li>
+                        <li><b>Share on</b>
+                            <div class="share">
+                                <a (click)="clickAny('facebook')"><i class="fa fa-facebook"></i></a>
+                                <a (click)="clickAny('twitter')"><i class="fa fa-twitter"></i></a>
+                                <a (click)="clickAny('instagram')"><i class="fa fa-instagram"></i></a>
+                                <a (click)="clickAny('pinterest')"><i class="fa fa-pinterest"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">                
+            <mat-tab-group mat-align-tabs="center"  class="custom-tabs">
+                <mat-tab label="Description">
+                    <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
+                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
+                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
+                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.</p>
+                </mat-tab>
+                <mat-tab label="Information">
+                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
+                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus.
+                        Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam
+                        sit amet quam vehicula elementum sed sit amet dui. Donec rutrum congue leo
+                        eget malesuada. Vivamus suscipit tortor eget felis porttitor volutpat.
+                        Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Praesent
+                        sapien massa, convallis a pellentesque nec, egestas non nisi. Vestibulum ac
+                        diam sit amet quam vehicula elementum sed sit amet dui. Vestibulum ante
+                        ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae;
+                        Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula.
+                        Proin eget tortor risus.</p>
+                </mat-tab>
+                <mat-tab label="Reviews">
+                    <p>Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui.
+                        Pellentesque in ipsum id orci porta dapibus. Proin eget tortor risus. Vivamus
+                        suscipit tortor eget felis porttitor volutpat. Vestibulum ac diam sit amet quam
+                        vehicula elementum sed sit amet dui. Donec rutrum congue leo eget malesuada.
+                        Vivamus suscipit tortor eget felis porttitor volutpat. Curabitur arcu erat,
+                        accumsan id imperdiet et, porttitor at sem. Praesent sapien massa, convallis a
+                        pellentesque nec, egestas non nisi. Vestibulum ac diam sit amet quam vehicula
+                        elementum sed sit amet dui. Vestibulum ante ipsum primis in faucibus orci luctus
+                        et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam
+                        vel, ullamcorper sit amet ligula. Proin eget tortor risus.</p>
+                        <p>Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Lorem
+                        ipsum dolor sit amet, consectetur adipiscing elit. Mauris blandit aliquet
+                        elit, eget tincidunt nibh pulvinar a. Cras ultricies ligula sed magna dictum
+                        porta. Cras ultricies ligula sed magna dictum porta. Sed porttitor lectus
+                        nibh. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a.
+                        Vestibulum ac diam sit amet quam vehicula elementum sed sit amet dui. Sed
+                        porttitor lectus nibh. Vestibulum ac diam sit amet quam vehicula elementum
+                        sed sit amet dui. Proin eget tortor risus.</p>
+                </mat-tab>
+            </mat-tab-group>
+        </div>
+    </div>
+
+    <!-- <script src="/src/assets/js/product.js"></script> -->
+</section>
+<!-- Product Details Section End -->
+<hr>
+<div class="related__products">
+    <div class="col-lg-12">
+        <div class="section-title related__product__title">
+            <h2>Related Product</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let i of related__products.slice(0, 4)">
+            <div class="produrelated__products_item">
+              <a routerLink="/san-pham/{{ i.slug }}.html" (click)="clickAny_related__products()">
+                <!-- <img src="/assets/iphone.png" class="img-fluid"> -->
+                <div *ngIf="i.img === '';then content else other_content"></div>
+                  <ng-template #content>
+                      <div class="products__img">
+                      <img src="/assets/logo.png" class="img-fluid">
+                      </div>
+                  </ng-template>
+                  <ng-template #other_content>
+                      <div class="products__img">
+                      <img src="{{i.img}}" class="img-fluid">
+                      </div>
+                  </ng-template>
+                <h5>{{ i.name }}</h5>
+                <p><span class="price">{{ i.price | number:'1.2-2' }} đ</span></p>
+              </a>
+            </div>
+          </div>
+    </div>
+</div>

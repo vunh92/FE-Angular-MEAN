@@ -1,0 +1,33 @@
+.table td, .table th{
+    vertical-align: middle;
+}
+
+.cart-list__title {
+	margin-bottom: 50px;
+	text-align: center;
+}
+
+.cart-list__title h2 {
+	color: #1c1c1c;
+	font-weight: 700;
+	position: relative;
+    font-size: 36px;
+	text-align: center;
+}
+
+.cart-list__title h2:after {
+	position: absolute;
+	left: 0;
+	bottom: -15px;
+	right: 0;
+	height: 4px;
+	width: 150px;
+	background: #7fad39;
+	content: "";
+	margin: 0 auto;
+}
+
+.cart-list-body tr .cart-list__button {
+    max-width: 80px;
+    text-align: center
+}

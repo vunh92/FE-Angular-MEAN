@@ -1,0 +1,127 @@
+.blog__details__text__content {
+    opacity: 0.7;
+    position: absolute;
+}
+
+/*---------------------
+  Blog Details
+-----------------------*/
+
+/* .related-blog {
+	padding-top: 70px;
+	padding-bottom: 10px;
+}
+
+.related-blog-title {
+	margin-bottom: 70px;
+}
+
+.blog-details {
+	padding-bottom: 75px;
+	border-bottom: 1px solid #e1e1e1;
+} */
+
+
+.blog__details__text {
+	margin-bottom: 45px;
+}
+
+.blog__details__text h2 {
+	color: #1c1c1c;
+	font-weight: 700;
+	position: relative;
+    font-size: 36px;
+	text-align: center;
+}
+.blog__details__text h2:after {
+	position: absolute;
+	left: 0;
+	bottom: -15px;
+	right: 0;
+	height: 4px;
+	width: 170px;
+	background: #7fad39;
+	content: "";
+	margin: 0 auto;
+}
+
+.blog__details__text img {
+	margin-bottom: 30px;
+}
+
+.blog__details__text p {
+	font-size: 18px;
+	line-height: 30px;
+}
+
+.blog__details__text h3 {
+	color: #333333;
+	font-weight: 700;
+	line-height: 30px;
+	margin-bottom: 30px;
+}
+
+.blog__details__author__pic {
+	float: left;
+	margin-right: 15px;
+}
+
+.blog__details__author__pic img {
+	height: 92px;
+	width: 92px;
+	border-radius: 50%;
+}
+
+.blog__details__author__text {
+	overflow: hidden;
+	padding-top: 20px;
+}
+
+.blog__details__author__text h6 {
+	color: #1c1c1c;
+	font-weight: 700;
+	font-size: 1rem;
+}
+
+.blog__details__author__text span {
+	font-size: 1.3rem;
+	color: #6f6f6f;
+}
+
+.blog__details__widget ul {
+	margin-bottom: 5px;
+}
+
+.blog__details__widget ul li {
+	font-size: 16px;
+	color: #6f6f6f;
+	list-style: none;
+	line-height: 30px;
+}
+
+.blog__details__widget ul li span {
+	color: #1c1c1c;
+	font-weight: 700;
+}
+
+.blog__details__widget .blog__details__social a {
+	display: inline-block;
+	padding-left: 40px;
+	font-size: 20px;
+	color: #6f6f6f;
+	margin-right: 24px;
+	-webkit-transition: all, 0.3s;
+	-moz-transition: all, 0.3s;
+	-ms-transition: all, 0.3s;
+	-o-transition: all, 0.3s;
+	transition: all, 0.3s;
+}
+
+.blog__details__widget .blog__details__social a:hover {
+	color: #7fad39;
+    cursor: pointer;
+}
+
+.blog__details__widget .blog__details__social a:last-child {
+	margin-right: 0;
+}

@@ -1,0 +1,18 @@
+<div class="category">
+    <ngb-accordion #acc="ngbAccordion">
+        <ngb-panel *ngFor="let i of aside">
+            <ng-template ngbPanelTitle>
+                {{ i.name }}
+            </ng-template>
+            <ng-template ngbPanelContent *ngIf="i.parent!=''">
+                <ul>
+                    <li *ngFor="let j of i.childs">
+                        <a routerLink="/danh-muc/{{ j.slug }}">
+                            {{ j.name }}
+                        </a>
+                    </li>
+                </ul>
+            </ng-template>
+        </ngb-panel>
+    </ngb-accordion>
+</div>

@@ -1,0 +1,40 @@
+<div class="cart-like__title">
+  <h2>Yêu Thích</h2>
+</div>        
+<div class="container cart-like">
+    <table class="table table-bordered" width="100%">
+      <!-- <thead class="cart-like-head">
+        <tr>
+          <th class="cart-like__img">Hình Ảnh</th>
+          <th>Tên Sản Phẩm</th>
+          <th>Giá Tiền</th>
+          <th>Chức năng</th>
+        </tr>
+      </thead> -->
+      <tbody class="cart-like-body">
+        <tr *ngFor="let i of array">
+          <td class="cart-like__img" (click)="clickImageItem(i)">
+            <div *ngIf="i.img === '';then content else other_content"></div>
+                <ng-template #content>
+                    <div class="cart-like-item__img">
+                    <img src="/assets/logo.png" class="img-fluid">
+                    </div>
+                </ng-template>
+                <ng-template #other_content>
+                    <div class="cart-like-item__img">
+                    <img src="{{i.img}}" class="img-fluid">
+                    </div>
+                </ng-template>
+            <!-- <img src="{{ i.img }}" class="img-fluid"> -->
+          </td>
+          <td style="align-items: center;">{{ i.name }}</td>
+          <td>{{ i.price }}</td>
+          <td class="cart-like__button">
+              <button type="button" class="btn btn-danger" (click)="delete_like_item(i)">Xóa</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+  
+  

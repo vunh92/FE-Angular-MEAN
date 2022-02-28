@@ -1,0 +1,69 @@
+<script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+<nav>
+    <!-- <div class="container">
+        <ul>
+            <li><a routerLink="/">Trang chủ</a></li>
+            <li><a routerLink="/tin-tuc">Giới thiệu</a></li>
+            <li><a routerLink="/san-pham">Sản phẩm</a></li>
+            <li><a routerLink="/tin-tuc">Tin tức</a></li>
+            <li><a routerLink="/lien-he">Liên hệ</a></li>
+            <li><a routerLink="/count">Test Store</a></li>
+            <li><a routerLink="/dang-nhap">Đăng nhập</a></li>
+            <li><a routerLink="/thong-tin-thanh-vien">Thông tin Thành viên</a></li>
+            <li><a routerLink="/dang-xuat" *ngIf="isLogin==true">Đăng xuất</a></li>
+        </ul>
+    </div> -->
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-9">
+                <div class="hero__search__form">
+                    <form action="#">
+                        <input type="text" placeholder="What do you need?" #t>
+                        <button type="submit" class="site-btn" (click)="search(t)">SEARCH</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="assets/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <nav class="header__menu">
+                    <ul>
+                        <li (click)="select('/')" [ngClass]="{active: isActive('/')}"><a routerLink="/">HOME</a></li>
+                        <li (click)="select('/test')" [ngClass]="{active: isActive('/test')}"><a routerLink="/test">Test</a></li>
+                        <li (click)="select('/shop')" [ngClass]="{active: isActive('/shop')}"><a routerLink="/shop">SHOP</a></li>
+                        <li (click)="select('/count')" [ngClass]="{active: isActive('/count')}"><a routerLink="/count">BLOG</a></li>
+                        <li (click)="select('/lien-he')" [ngClass]="{active: isActive('/lien-he')}"><a routerLink="/lien-he">CONTACT</a></li>
+                        <li [ngClass]="{active: isActiveGroup()}"><a href="#" style=" pointer-events: none;">PAGES</a>
+                            <ul class="header__menu__dropdown">
+                                <li (click)="select('/tin-tuc')" [ngClass]="{active: isActive('/tin-tuc')}"><a routerLink="/tin-tuc" >NEWS</a></li>
+                                <li (click)="select('/thong-tin-thanh-vien')" [ngClass]="{active: isActive('/thong-tin-thanh-vien')}"><a routerLink="/thong-tin-thanh-vien">MEMBER INFO</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-3">
+                <div class="header__cart">
+                    <ul>
+                        <li><a routerLink="/cart-like-list"><i class="fa fa-heart"></i> <span>{{count_like | async}}</span></a></li>&nbsp;
+                        <li><a routerLink="/gio-hang"><i class="fa fa-shopping-bag"></i> <span>{{count_cart | async}}</span></a></li>
+                    </ul>
+                    <div class="header__cart__price">item: <span>$150.00</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</nav>

@@ -1,0 +1,65 @@
+<header>
+    <div class="header__top">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__top__left">
+                        <ul>
+                            <li><i class="fa fa-envelope"></i> hello@colorlib.com</li>
+                            <li>Free Shipping for all Order of $99</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="header__top__right">
+                        <div class="header__top__right__social">
+                            <a ><i class="fa fa-facebook"></i></a>
+                            <!-- <a href="#"><i class="fa fa-twitter"></i></a> -->
+                            <!-- <p>{{ isLogin | async }}</p> -->
+                            <!-- <a href="#"><i class="fa fa-linkedin"></i></a> -->
+                            <!-- <a href="#"><i class="fa fa-pinterest-p"></i></a> -->
+                        </div>
+                        <div class="header__top__right__language">
+                            <img src="img/language.png" alt="">
+                            <div>English</div>
+                            <span class="arrow_carrot-down"></span>
+                            <ul>
+                                <li><a href="#">Vietnamese</a></li>
+                                <li><a href="#">English</a></li>
+                            </ul>
+                        </div>
+                        <div class="header__top__right__auth"> 
+                            <div *ngIf="isLogin | async; then thenBlock else elseBlock"></div>
+                            <ng-template #thenBlock><a (click)="logout()"><i class="fa fa-sign-out"></i> Logout</a></ng-template>
+                            <ng-template #elseBlock><a routerLink="/dang-nhap"><i class="fa fa-user"></i> Login</a></ng-template>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="logo">
+                    header works!
+                </div>
+            </div>
+            <div class="col-md-7">
+                <div class="search">
+                    <form action="">
+                        <input type="text" #t>
+                        <button type="button" (click)="search(t)">Search</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div style="padding: 20px;">
+                    <a routerLink="/gio-hang" style="color: black;margin-right: 5px;">Giỏ Hàng</a> 
+                    <span style="color: yellow;">({{currentValue}})</span>
+                </div>
+            </div>
+        </div>
+    </div> -->
+</header>
+

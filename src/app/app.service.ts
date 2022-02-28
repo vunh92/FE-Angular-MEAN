@@ -14,7 +14,8 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  url = 'http://localhost:3000/api/';
+  // url = 'http://localhost:3000/api/';
+  url = 'https://be-nodejs-mean.herokuapp.com/api/';
 
   // cấu hình header
   option = { headers: new HttpHeaders().set("Content-Type", "application/x-www-form-urlencoded") };

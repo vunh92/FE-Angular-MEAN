@@ -7,6 +7,10 @@
     right: 0;
     align-items: center;
     justify-content: center;
+	transition: transform .2s; /* Animation */
+}
+.row .products .products__img:hover {
+	transform: scale(1.05);
 }
 
 .row .products .img-fluid{
@@ -27,6 +31,7 @@
 	height: 270px;
 	position: relative;
 	overflow: hidden;
+	padding: 10px;
 }
 
 .product__item__pic__hover {

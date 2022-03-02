@@ -1,0 +1,20 @@
+.table {
+    width: 100% !important;
+}
+
+.ad_home_name {
+    width: 10% !important;
+    display: flex;
+    flex-wrap: wrap !important;
+}
+
+.home-col {
+    display: flex;
+    /* grid-gap: 20px; */
+    flex-wrap: wrap !important;
+}
+
+.cot1 {
+    background-color: blueviolet;
+    /* padding: 10px; */
+}

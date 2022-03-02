@@ -14,16 +14,11 @@ export class AppService {
 
   constructor(private http: HttpClient) { }
 
-  // url = 'http://localhost:3000/api/';
-  url = 'https://be-nodejs-mean.herokuapp.com/api/';
+  url = 'http://localhost:3000/api/';
+  // url = 'https://be-nodejs-mean.herokuapp.com/api/';
 
   // cấu hình header
   option = { headers: new HttpHeaders().set("Content-Type", "application/x-www-form-urlencoded") };
-
-  list_product()
-  {
-    return this.http.get( this.url + 'product/list' );
-  }
 
   list_aside()
   {
@@ -33,6 +28,27 @@ export class AppService {
   get_id_category(slug:any)
   {
     return this.http.get( this.url + 'category/getid/' + slug );
+  }
+  
+  // ---------- product component ---------- //
+  api_get_item_product(id_product:any)
+  {
+    return this.http.get( this.url + 'product/get_item/' + id_product );
+  }
+
+  api_add_item_product(product:any)
+  {
+    let body = new URLSearchParams();
+
+    body.set('username', product.username);
+    body.set('password', product.password);
+
+    return this.http.post(this.url + 'product/add', body, this.option);
+  }
+
+  list_product()
+  {
+    return this.http.get( this.url + 'product/list' );
   }
 
   list_product_from_parent(parent:any)
@@ -50,6 +66,7 @@ export class AppService {
     return this.http.get( this.url + 'product/related__products/' + id_product + '/' + id_category );
   }
 
+  // 
   send_data_login(data:any)
   {
     let body = new URLSearchParams();
@@ -144,7 +161,7 @@ export class AppService {
   }
   
   // ---------- contact component ---------- //
-  //sned contact from db
+  //send contact from db
   send_data_contact(data:any)
   {
     let body = new URLSearchParams();
@@ -162,4 +179,12 @@ export class AppService {
   {
     return this.http.get( this.url + 'user/token/' + data);
   }
+
+  // ---------- footer component ---------- //
+  //  send
+  api_send_mail(email:any)
+  {
+    return this.http.get( this.url + 'send_mail/' + email);
+  }
+
 }

@@ -1,21 +1,56 @@
 <app-header [_title]="title"></app-header>
-<app-nav></app-nav>
-<main>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3">
-                <div class="aside">
-                    <app-aside></app-aside>
+<div *ngIf="role == 'admin';then roleGlobal_then else roleGlobal_other_content"></div>
+    <ng-template #roleGlobal_then>
+        <app-ad-nav></app-ad-nav>
+        <main class="container-body">
+            <router-outlet></router-outlet>
+        </main>
+    </ng-template>
+    <ng-template #roleGlobal_other_content>
+        <app-nav></app-nav>
+        <main>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="aside">
+                            <app-aside></app-aside>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="home">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <div class="col-md-9">
-                <div class="home">
+        </main>
+    </ng-template>
+<!-- <app-nav></app-nav>
+<main>
+        <ng-template #roleGlobal_then>
+            <div class="container">
+                <div class="row">
                     <router-outlet></router-outlet>
                 </div>
             </div>
-        </div>
-    </div>
-</main>
+        </ng-template>
+        <ng-template #roleGlobal_other_content>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="aside">
+                            <app-aside></app-aside>
+                        </div>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="home">
+                            <router-outlet></router-outlet>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+</main> -->
 <app-footer (callParentFunction)="getData($event)"></app-footer>
 
 <!-- Gọi chát -->

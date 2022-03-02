@@ -89,7 +89,7 @@ export class HomeComponent implements OnInit {
       this.service
       .list_product_from_parent(id_category)
       .subscribe((kq2: any)=>{
-        console.log(kq2)
+        // console.log(kq2)
         if(kq2['kq'] == 1) {
           this.cateList1 = kq2['data'];
           // this.total = this.cateList1.length;
@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit {
       this.service
       .list_product_from_parent(id_category)
       .subscribe((kq2: any)=>{
-        console.log(kq2)
+        // console.log(kq2)
         if(kq2['kq'] == 1) {
           this.cateList2 = kq2['data'];
           // this.total = this.cateList1.length;
@@ -126,7 +126,7 @@ export class HomeComponent implements OnInit {
       this.service
       .list_product_from_parent(id_category)
       .subscribe((kq2: any)=>{
-        console.log(kq2)
+        // console.log(kq2)
         if(kq2['kq'] == 1) {
           this.cateList3 = kq2['data'];
           // this.total = this.cateList1.length;

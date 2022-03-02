@@ -1,0 +1,97 @@
+<div class="col-12 ad-product-add">
+    <div class="col-10 ad-product-add__title base-padding">
+        <h2>Thêm dữ liệu</h2>
+    </div>
+</div>
+<hr>
+<form [formGroup]="product" (ngSubmit)="get_value_form(product.value)">
+    <div class="col-12 ad-product-add__body border base-padding-vertical">
+        <div class="col-6">
+            <br>
+            <div class="form-group">
+                <label class="col-6" for="name">Nhập Tên<span class="required text-danger">(*)</span></label>
+                <div class="">
+                    <input type="text" name="name" id="name" required minlength="3" required="required"
+                        class="form-control" placeholder="" formControlName="name">
+                    <span class="error error_name"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-6" for="price">Nhập Giá <span class="required text-danger">(*)</span></label>
+                <div class="">
+                    <input type="text" name="price" id="price" required minlength="3" required="required"
+                        class="form-control" placeholder="" formControlName="price">
+                    <span class="error error_price"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-6" for="parent">Chọn Cha</label>
+                <div class="">
+                    <select name="parent" id="parent" class="form-control">
+                        <option value="">--Chọn--</option>
+                        <option value="Điện Thoại Di Động">Điện Thoại Di Động</option>
+                        <option value="Máy Tính Bảng">Máy Tính Bảng</option>
+                    </select><span class="error error_parent"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-6" for="discount">Nhập Giảm Giá</label>
+                <div class="">
+                    <input type="text" name="discount" id="discount" required="required" class="form-control"
+                        placeholder="" formControlName="discount">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-6" for="type">Loại</label>
+                <div class="">
+                    <input type="text" name="type" id="type" required="required" class="form-control" placeholder="" formControlName="type">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-6" for="note">Ghi Chú</label>
+                <div class="">
+                    <input type="text" name="note" id="note" required="required" class="form-control" placeholder="" formControlName="note">
+                </div>
+            </div>
+        </div>
+        <div class="col-6">
+            <br>
+            <div class="form-group">
+                <label class="col-6" for="detail">Chỉ Tiết Sản Phẩm</label>
+                <div class="">
+                    <input type="text" name="detail" id="detail" required="required" class="form-control"
+                        placeholder="" formControlName="detail">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-6" for="detail2">Chi Tiết 2</label>
+                <div class="">
+                    <input type="text" name="detail2" id="detail2" required="required" class="form-control"
+                        placeholder="" formControlName="detail2">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-6" for="detail3">Chỉ Tiết 3</label>
+                <div class="">
+                    <input type="text" name="detail3" id="detail3" required="required" class="form-control"
+                        placeholder="" formControlName="detail3">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-6" for="image">Hình Sản Phẩm</label>
+                <div class="">
+                    <input type="text" name="image" id="image" required="required" class="form-control" placeholder="" formControlName="image">
+                </div>
+            </div>
+            <!-- <div class="col-12 ad-product-add__body--image">
+                <img src="/assets/default_image.jpg" alt="">
+            </div> -->
+        </div>
+    </div>
+    <div class="col-12 ad-product-add__button base-padding-vertical">
+        <!-- <button type="submit" [disabled]="product.invalid" class="btn btn-success"><i class="fa fa-save"></i> Lưu lại</button> -->
+        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Lưu lại</button>
+        &nbsp;
+        <a routerLink="admin/product" class="btn btn-danger">Thoát</a>
+    </div>
+</form>

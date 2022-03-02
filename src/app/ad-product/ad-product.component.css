@@ -1,0 +1,9 @@
+.ad-product {
+    display: flex;
+    /* grid-gap: 20px; */
+    flex-wrap: wrap !important;
+}
+
+.ad-product__bt {
+    text-align: right;
+}

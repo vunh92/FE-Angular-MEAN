@@ -13,6 +13,7 @@ export class AppGuard implements CanActivate {
       if(idUserGlobal != ''){
         return true;
       }else{
+        alert('Bạn chưa đăng nhập!')
         return false;
       }
   }

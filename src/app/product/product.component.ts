@@ -1,5 +1,4 @@
 import { Component, OnInit , ViewEncapsulation  } from '@angular/core';
-declare const myTest: any;
 declare var $: any;
 
 // Gọi ActivatedRoute, ParamMap

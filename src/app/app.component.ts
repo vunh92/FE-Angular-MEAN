@@ -10,7 +10,7 @@ import { Store } from '@ngrx/store';
 import { AppService } from '../app/app.service';
 
 // Gọi ActivatedRoute, ParamMap
-import { Router, Event as NavigationEvent } from '@angular/router';
+import { Router, NavigationStart, Event as NavigationEvent } from '@angular/router';
 
 @Component({
   selector: 'app-root', // tên
@@ -20,15 +20,24 @@ import { Router, Event as NavigationEvent } from '@angular/router';
 export class AppComponent {
   title = 'Hello Angular';
   id_user:any = ''
+  role = 'guest'
+  url:any = '/'
 
   constructor(private store: Store<{login: boolean }>,  private router: Router, private service: AppService){
+    this.getBaseData()
+  }
+
+  getBaseData(){
     if(localStorage.getItem('key_token')){
-      idUserGlobal= localStorage.getItem('key_id_user')
+      idUserGlobal = localStorage.getItem('key_id_user')
+      roleGlobal = localStorage.getItem('key_role')
+      this.role = roleGlobal
       this.store.dispatch(login())
       this.getcountLike(idUserGlobal)
       this.getcountCart(idUserGlobal)
     }else {
       idUserGlobal = ''
+      roleGlobal = 'guest'
       this.store.dispatch(logout())
       // this.router.navigate(['/dang-nhap'])
       // .then(() => {
@@ -39,6 +48,17 @@ export class AppComponent {
       //   });
       // })
     }
+
+    // this.router.events.subscribe((event: NavigationEvent) => {
+    //   if(event instanceof NavigationStart) {
+    //     this.url = event.url
+    //     console.log(event.url)
+    //   }
+    // });
+    // if(roleGlobal == 'admin') {
+    //   this.router.navigate(['/admin'])
+    // } else {this.router.navigate(['/'])}
+
   }
 
   getcountLike(data:any){
@@ -61,10 +81,14 @@ export class AppComponent {
     //console.log(data);
   }
 
-  getData(data:any){}
+  getData(data:any){
+    // console.log(data)
+  }
 }
 
-export var idUserGlobal = '';
+export var idUserGlobal = ''
+
+export var roleGlobal = 'guest'
 
 export function clickAlert(msg:any): any{
   alert(msg)

@@ -60,6 +60,12 @@ import { likeReducer } from './Store/Reducers/like.reducers';
 import { loginReducer } from './Store/Reducers/login.reducers';
 import { countCartReducer } from './Store/Reducers/count_cart.reducers';
 import { countLikeReducer } from './Store/Reducers/count_like.reducers';
+import { AdNavComponent } from './ad-nav/ad-nav.component';
+import { AdHomeComponent } from './ad-home/ad-home.component';
+import { AdCategoryComponent } from './ad-category/ad-category.component';
+import { AdProductComponent } from './ad-product/ad-product.component';
+import { AdUserComponent } from './ad-user/ad-user.component';
+import { AdProductAddComponent } from './ad-product-add/ad-product-add.component';
 
 
 @NgModule({
@@ -84,6 +90,12 @@ import { countLikeReducer } from './Store/Reducers/count_like.reducers';
     ShopComponent,
     CartLikeListComponent,
     TestscreenComponent,
+    AdNavComponent,
+    AdHomeComponent,
+    AdCategoryComponent,
+    AdProductComponent,
+    AdUserComponent,
+    AdProductAddComponent,
     //MovieComponent,
     //MovieListComponent
   ],

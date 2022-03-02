@@ -1,0 +1,62 @@
+<div class="col-12 ad-product">
+    <div class="col-10 ad-product__title base-padding">
+        Product
+    </div>
+    <div class="col-2 ad-product__bt base-padding">
+        <a routerLink="/admin/product/add" class="btn btn-sm btn-info">
+            <i class="fa fa-plus"></i> Add
+        </a>
+        &nbsp;
+        <button type="button" class="btn btn-sm btn-danger">
+            <i class="fa fa-trash"></i>
+            (<span id="trash">0</span>)
+        </button>
+    </div>
+</div>
+
+<div class="col-12 ad-product-table">
+    <div class="table-responsive base-padding-vertical">
+        <table class="table table-striped jambo_table bulk_action">
+            <thead>
+                <tr class="">
+                    <th scope="col" class="" style="width: 5%;">
+                        <div class="">
+                            <input type="checkbox" id="check-all" class="">
+                        </div>
+                    </th>
+                    <th scope="col" class="" style="width: 10%;">STT </th>
+                    <th scope="col" class="" style="width: 37%;">Tên Sản Phẩm</th>
+                    <th scope="col" class="" style="width: 15%;">Giá</th>
+                    <th scope="col" class="" style="width: 15%;">Trạng Thái</th>
+                    <th scope="col" class="" style="width: 23%;"><span class="nobr">Chức năng</span>
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="" *ngFor="let product of productList; let i = index">
+                    <td class="">
+                        <div class="">
+                            <input type="checkbox" class="" name="" >
+                        </div>
+                    </td>
+                    <td class=" ">{{i+1}}</td>
+                    <td class=" ">{{product.name}}</td>
+                    <td class=" ">{{product.price | number:'1.0-2' }}</td>
+                    <td class=" ">
+                        <input type="checkbox" name="item-{{product.slug}}"
+                        [checked]="product.status" #statusInput>
+                    </td>
+                    <td class=" last">
+                        <a class="btn btn-sm btn-round btn-info">
+                            <i class="fa fa-edit"></i> Edit</a>
+                        &nbsp;
+                        <button type="button" class="btn btn-sm btn-danger">
+                            <i class="fa fa-trash"></i>
+                            Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

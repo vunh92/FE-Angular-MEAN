@@ -18,6 +18,11 @@ import { AppGuard } from './app.guard';
 import { ShopComponent } from './shop/shop.component';
 import { CartLikeListComponent } from './cart-like-list/cart-like-list.component';
 import { TestscreenComponent } from './testscreen/testscreen.component';
+import { AdHomeComponent } from './ad-home/ad-home.component';
+import { AdCategoryComponent } from './ad-category/ad-category.component';
+import { AdProductComponent } from './ad-product/ad-product.component';
+import { AdUserComponent } from './ad-user/ad-user.component';
+import { AdProductAddComponent } from './ad-product-add/ad-product-add.component';
 
 const routes: Routes = [
   {
@@ -68,6 +73,26 @@ const routes: Routes = [
   {
     path: 'test',
     component: TestscreenComponent
+  },
+  {
+    path: 'admin',
+    component: AdHomeComponent
+  },
+  {
+    path: 'admin/category',
+    component: AdCategoryComponent
+  },
+  {
+    path: 'admin/product',
+    component: AdProductComponent
+  },
+  {
+    path: 'admin/product/add',
+    component: AdProductAddComponent
+  },
+  {
+    path: 'admin/user',
+    component: AdUserComponent
   },
   {
     path: '**',

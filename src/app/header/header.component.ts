@@ -11,12 +11,18 @@ import { login, logout } from '../Store/Actions/login.actions';
 // Gọi ActivatedRoute, ParamMap
 import { Router, Event as NavigationEvent } from '@angular/router';
 
+import { clickAlert } from "../app.component";
+
+declare var $: any;
+
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+
+  public clickAny = clickAlert
 
   @Input() _title:any;
 
@@ -39,16 +45,27 @@ export class HeaderComponent implements OnInit {
   logout(){
     localStorage.removeItem('key_token')
     localStorage.removeItem('key_id_user')
+    localStorage.removeItem('key_role')
     this.store.dispatch(logout())
     alert('Bạn đã đăng xuất!')
-    this.router.navigate(['/dang-nhap'])
-      .then(() => {
-        window.location.reload()
-      })
+    window.location.replace('/dang-nhap')
+    // this.router.navigate(['/dang-nhap'])
+    //   .then(() => {
+    //     window.location.reload()
+    //   })
+  }
+
+  changeLanguage(text:any){
+    $('#header__top__right__language--show').text(text)
+    // window.scroll({ 
+    //   top: 0, 
+    //   left: 0, 
+    //   behavior: 'smooth' 
+    // });
   }
 
   ngOnInit(): void {
-    //console.log(this._title);
+    // console.log(this._title);
     // this.get_cart()
     // .subscribe((kq:any)=>{
     //   this.currentValue = kq.length;

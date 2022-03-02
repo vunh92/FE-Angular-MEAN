@@ -21,11 +21,11 @@
                         </div>
                         <div class="header__top__right__language">
                             <img src="img/language.png" alt="">
-                            <div>English</div>
+                            <div id="header__top__right__language--show">English</div>
                             <span class="arrow_carrot-down"></span>
                             <ul>
-                                <li><a href="#">Vietnamese</a></li>
-                                <li><a href="#">English</a></li>
+                                <li><a (click)="changeLanguage('Vietnamese')">Vietnamese</a></li>
+                                <li><a (click)="changeLanguage('English')">English</a></li>
                             </ul>
                         </div>
                         <div class="header__top__right__auth"> 

@@ -12,6 +12,9 @@ import { Like } from '../Models/like';
 // import { updateLike, deleteLike } from '../Store/Actions/like.action';
 import { incrementLike , decrementLike , resetLike  } from '../Store/Actions/count_like.action';
 
+// Gọi ActivatedRoute, ParamMap
+import { Router, Event as NavigationEvent } from '@angular/router';
+
 @Component({
   selector: 'app-cart-like-list',
   templateUrl: './cart-like-list.component.html',
@@ -23,7 +26,8 @@ export class CartLikeListComponent implements OnInit {
   // like$: Observable<[]>;
   id_user:any = ''
 
-  constructor(private store: Store<{ like: [] , count_like: number}>, private service: AppService) {
+  constructor(private store: Store<{ like: [] , count_like: number}>, private service: AppService,
+    private router: Router) {
     // this.like$ = store.select('like');
   }
   // get_like(){
@@ -71,20 +75,22 @@ export class CartLikeListComponent implements OnInit {
 
   clickImageItem(item:any){
     // console.log(item)
-    // this.service
-    // .api_delete_like(item._id)
-    // .subscribe((kq:any) => {
-    //   if(kq['kq']==1){
-    //     // this.get_like_list()
-    //     var index = this.array.indexOf(item);
-    //     if (index !== -1) {
-    //       this.array.splice(index, 1);
-    //       this.store.dispatch(decrementLike())
-    //     }
-    //   }else{
-    //     alert('Cập nhật thất bại!')
-    //   }
-    // })
+    this.service
+    .api_get_item_product(item.id_product)
+    .subscribe((kq:any) => {
+      if(kq['kq']==1){
+        console.log(kq['data'])
+        this.router.navigate(['/san-pham/'+ kq['data'][0].slug +'.html'])
+        .then(() => {
+          // window.location.reload()
+          window.scroll({ 
+            top: 0, 
+            left: 0, 
+            behavior: 'smooth' 
+          });
+        })
+      }
+    })
   }
 
   ngOnInit(): void {

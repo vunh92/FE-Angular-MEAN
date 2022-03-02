@@ -67,21 +67,31 @@ export class LoginComponent implements OnInit {
     .subscribe((kq:any)=>{
       console.log(this.login$)
       localStorage.removeItem('key_token')
+      localStorage.removeItem('key_id_user')
+      localStorage.removeItem('key_role')
       if(kq['kq'] == 1) {
+        // console.log(kq['token'])
         localStorage.setItem('key_token', kq['token'].token)
         localStorage.setItem('key_id_user', kq['token'].id_user)
+        localStorage.setItem('key_role', kq['token'].role)
         this.setLogin(true)
-        alert('Chào mừng bạn!')
-        this.router.navigate([''])
-          .then(() => {
-            window.location.reload()
-            // this.login$ = this.login$.pipe(map((data:any) => data));
-            // window.scroll({ 
-            //   top: 0, 
-            //   left: 0, 
-            //   behavior: 'smooth' 
-            // });
-          })
+        if(kq['token'].role == 'admin') {
+          alert('Bạn đang là admin!')
+          window.location.replace('/admin')
+        }else {
+          alert('Chào mừng bạn!')
+          window.location.replace('/')
+        }
+        // this.router.navigate([''])
+        //   .then(() => {
+        //     window.location.reload()
+        //     // this.login$ = this.login$.pipe(map((data:any) => data));
+        //     // window.scroll({ 
+        //     //   top: 0, 
+        //     //   left: 0, 
+        //     //   behavior: 'smooth' 
+        //     // });
+        //   })
       }else {
         this.setLogin(false)
         // this.isLogin = this.login$.pipe(map((data:any) => data));

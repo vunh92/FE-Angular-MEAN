@@ -2,8 +2,8 @@
 <div class="cart-list__title">
   <h2>Giỏ Hàng</h2>
 </div> 
-<div *ngIf="!isEdit; then thenBlock else elseBlock"></div>
-<ng-template #thenBlock>
+<div *ngIf="!isEdit; then cartListContent else cartListElse"></div>
+<ng-template #cartListContent>
   <div class="container cart-list">
     <table class="table table-bordered">
       <thead>
@@ -29,7 +29,7 @@
     <br>
   </div>
 </ng-template>
-<ng-template #elseBlock>
+<ng-template #cartListElse>
   <div class="col-md-5">
     <form action="">
         <!-- <div class="form-group">

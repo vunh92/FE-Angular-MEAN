@@ -45,7 +45,7 @@
                     <li><a (click)="add_to_cart(i._id, i.name, i.price, 1, i.img)"><i class="fa fa-shopping-cart"></i></a></li>
                 </ul>
             </div>
-            <a routerLink="/san-pham/{{ i.slug }}.html">
+            <a routerLink="/san-pham/{{ i.slug }}.html" style="text-decoration: none;">
                 <div class="product__item__text">
                     <h3>{{ i.name }}</h3>
                     <h5 class="price" >{{ i.price | number:'1.0-2' }} đ</h5>

@@ -1,0 +1,19 @@
+.ship__title h2 {
+	color: #1c1c1c;
+	font-weight: 700;
+	position: relative;
+    font-size: 28px;
+	text-align: center;
+}
+
+.ship__title h2:after {
+	position: absolute;
+	left: 0;
+	bottom: -15px;
+	right: 0;
+	height: 4px;
+	width: 150px;
+	background: #7fad39;
+	content: "";
+	margin: 0 auto;
+}

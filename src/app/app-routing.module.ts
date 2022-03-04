@@ -23,6 +23,8 @@ import { AdCategoryComponent } from './ad-category/ad-category.component';
 import { AdProductComponent } from './ad-product/ad-product.component';
 import { AdUserComponent } from './ad-user/ad-user.component';
 import { AdProductAddComponent } from './ad-product-add/ad-product-add.component';
+import { ShipComponent } from './ship/ship.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   {
@@ -50,6 +52,10 @@ const routes: Routes = [
     component: LoginComponent
   },
   {
+    path: 'register',
+    component: RegisterComponent
+  },
+  {
     path: 'thong-tin-thanh-vien',
     component: InfouserComponent,
     canActivate: [AppGuard]
@@ -69,6 +75,10 @@ const routes: Routes = [
   {
     path: 'shop',
     component: ShopComponent
+  },
+  {
+    path: 'ship',
+    component: ShipComponent
   },
   {
     path: 'test',

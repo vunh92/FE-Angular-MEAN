@@ -66,6 +66,7 @@ import { AdCategoryComponent } from './ad-category/ad-category.component';
 import { AdProductComponent } from './ad-product/ad-product.component';
 import { AdUserComponent } from './ad-user/ad-user.component';
 import { AdProductAddComponent } from './ad-product-add/ad-product-add.component';
+import { ShipComponent } from './ship/ship.component';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { AdProductAddComponent } from './ad-product-add/ad-product-add.component
     AdProductComponent,
     AdUserComponent,
     AdProductAddComponent,
+    ShipComponent,
     //MovieComponent,
     //MovieListComponent
   ],

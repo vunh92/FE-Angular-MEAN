@@ -39,7 +39,7 @@
                 <nav class="header__menu">
                     <ul>
                         <li (click)="select('/')" [ngClass]="{active: isActive('/')}"><a routerLink="/">HOME</a></li>
-                        <li (click)="select('/test')" [ngClass]="{active: isActive('/test')}"><a routerLink="/test">Test</a></li>
+                        <!-- <li (click)="select('/test')" [ngClass]="{active: isActive('/test')}"><a routerLink="/test">Test</a></li> -->
                         <li (click)="select('/shop')" [ngClass]="{active: isActive('/shop')}"><a routerLink="/shop">SHOP</a></li>
                         <li (click)="select('/count')" [ngClass]="{active: isActive('/count')}"><a routerLink="/count">BLOG</a></li>
                         <li (click)="select('/lien-he')" [ngClass]="{active: isActive('/lien-he')}"><a routerLink="/lien-he">CONTACT</a></li>
@@ -58,7 +58,7 @@
                         <li><a routerLink="/cart-like-list"><i class="fa fa-heart"></i> <span>{{count_like | async}}</span></a></li>&nbsp;
                         <li><a routerLink="/gio-hang"><i class="fa fa-shopping-bag"></i> <span>{{count_cart | async}}</span></a></li>
                     </ul>
-                    <div class="header__cart__price">item: <span>$150.00</span></div>
+                    <!-- <div class="header__cart__price">item: <span>$150.00</span></div> -->
                 </div>
             </div>
         </div>

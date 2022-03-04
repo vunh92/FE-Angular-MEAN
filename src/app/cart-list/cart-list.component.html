@@ -1,27 +1,31 @@
-   
-<div class="cart-list__title">
-  <h2>Giỏ Hàng</h2>
-</div> 
+<div class="col-12 cart-list">
+  <div class="cart-list__title col-8">
+    <h2>Giỏ Hàng</h2>
+  </div>
+  <div class="cart-list__pay col-4">
+    <a type="button" class="btn site-btn" (click)="payment()">Thanh Toán ({{cartList.length}})</a>
+  </div>
+</div>
 <div *ngIf="!isEdit; then cartListContent else cartListElse"></div>
 <ng-template #cartListContent>
   <div class="container cart-list">
     <table class="table table-bordered">
       <thead>
         <tr>
-          <th>Tên Sản Phẩm</th>
-          <th>Số Lượng</th>
-          <th>Giá Tiền</th>
-          <th>Chức năng</th>
+          <th style="width: 20%;">Tên Sản Phẩm</th>
+          <th style="width: 10%;">Số Lượng</th>
+          <th style="width: 10%;">Giá Tiền</th>
+          <th style="width: 14%;">Chức năng</th>
         </tr>
       </thead>
       <tbody class="cart-list-body">
-        <tr *ngFor="let i of array">
+        <tr *ngFor="let i of cartList">
           <td>{{ i.name }}</td>
           <td>{{ i.qty }}</td>
           <td>{{ i.price }}</td>
           <td class="cart-list__button">
-              <button type="button" class="btn btn-primary" (click)="edit_cart_item(i)">Chỉnh Sửa</button>&nbsp;
-              <button type="button" class="btn btn-danger" (click)="delete_cart_item(i)">Xóa</button>
+            <button type="button" class="btn btn-primary" (click)="edit_cart_item(i)">Chỉnh Sửa</button>&nbsp;
+            <button type="button" class="btn btn-danger" (click)="delete_cart_item(i)">Xóa</button>
           </td>
         </tr>
       </tbody>
@@ -32,24 +36,21 @@
 <ng-template #cartListElse>
   <div class="col-md-5">
     <form action="">
-        <!-- <div class="form-group">
+      <!-- <div class="form-group">
             <input type="text" class="form-control" name="id_product" [ngModel]="update.id_product" #id_product>
           </div> -->
-        <div class="form-group">
-          <input disabled="disabled" type="text" class="form-control" name="name" [ngModel]="update.name" #name>
-        </div>
-        <div class="form-group">
-            <input disabled="disabled" type="number" class="form-control" name="price" [ngModel]="update.price" #price>
-        </div>
-        <div class="form-group">
-          <input type="number" class="form-control" name="qty" [ngModel]="update.qty" min="1" #qty>
-        </div>
-        <button type="button" class="btn btn-primary" (click)="update_cart(update, qty)">Cập nhật</button>&nbsp;
-        <button type="button" class="btn btn-danger" (click)="cancel_update_cart()">Hủy</button>
+      <div class="form-group">
+        <input disabled="disabled" type="text" class="form-control" name="name" [ngModel]="update.name" #name>
+      </div>
+      <div class="form-group">
+        <input disabled="disabled" type="number" class="form-control" name="price" [ngModel]="update.price" #price>
+      </div>
+      <div class="form-group">
+        <input type="number" class="form-control" name="qty" [ngModel]="update.qty" min="1" #qty>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="update_cart(update, qty)">Cập nhật</button>&nbsp;
+      <button type="button" class="btn btn-danger" (click)="cancel_update_cart()">Hủy</button>
     </form>
   </div>
   <br><br>
 </ng-template>
-
-  
-  

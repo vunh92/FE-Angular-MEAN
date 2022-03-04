@@ -1,1 +1,32 @@
-<p>register works!</p>
+<p *ngIf="isAlert">
+    <ngb-alert [type]="isAlert.type" (closed)="close()">{{ isAlert.message }}</ngb-alert>
+</p>
+<form #register="ngForm" (ngSubmit)="sendRegister(register.value)" class="register">
+    <div class="register__con">
+        <header class="head-form">
+            <h2>Log In</h2>
+            <p>Register new User</p>
+        </header>
+        <div class="">
+            <span class="register__input-item"> <i class="fa fa-user-circle"></i> </span>
+            <input class="register__input" type="text" placeholder="@UserName" id="username" name="username" ngModel>
+        </div>
+        <div class="">
+            <span class="register__input-item"><i class="fa fa-key"></i></span>
+            <input class="register__input" type="password" placeholder="Password" id="password"  name="password" required ngModel>
+        </div>
+        <div class="">
+            <span class="register__input-item"><i class="fa fa-key"></i></span>
+            <input class="register__input" type="password" placeholder="Confirm Password" id="confirm"  name="confirm" required ngModel>
+        </div>
+        <div class="">
+            <span class="register__input-item"><i class="fa fa-envelope"></i></span>
+            <input class="register__input" type="email" placeholder="Email" id="email"  name="email" required ngModel>
+        </div>
+        <div class="">
+            <span class="register__input-item"><i class="fa fa-phone"></i></span>
+            <input class="register__input" type="phone" placeholder="Phone" id="phone"  name="phone" required ngModel>
+        </div>
+        <button type="submit" class="btn sign-up">Đăng Ký</button>
+    </div>
+</form>

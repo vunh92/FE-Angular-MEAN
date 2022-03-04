@@ -3,14 +3,14 @@
 </div>        
 <div class="container cart-like">
     <table class="table table-bordered" width="100%">
-      <!-- <thead class="cart-like-head">
+      <thead>
         <tr>
-          <th class="cart-like__img">Hình Ảnh</th>
-          <th>Tên Sản Phẩm</th>
-          <th>Giá Tiền</th>
-          <th>Chức năng</th>
+          <th style="width: 20%;">Tên Sản Phẩm</th>
+          <th style="width: 12%;">Số Lượng</th>
+          <th style="width: 12%;">Giá Tiền</th>
+          <th style="width: 10%;">Chức năng</th>
         </tr>
-      </thead> -->
+      </thead>
       <tbody class="cart-like-body">
         <tr *ngFor="let i of array">
           <td class="cart-like__img" (click)="clickImageItem(i)">

@@ -102,6 +102,7 @@
 	text-align: center;
 	padding: 15px 0;
 	background-color: #e3fdf5;
+	min-height: 105px;
 }
 
 .product__item__text:hover h3{

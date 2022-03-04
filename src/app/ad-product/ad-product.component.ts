@@ -15,8 +15,7 @@ export class AdProductComponent implements OnInit {
   constructor(private service: AppService) { }
 
   get_product_list() {
-    this.service
-    .list_product()
+    this.service.list_product()
     .subscribe((kq:any) => {
       // console.log(kq)
       if(kq['kq']==1){

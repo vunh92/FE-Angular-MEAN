@@ -94,6 +94,7 @@ export class ShopComponent implements OnInit {
     .subscribe((kq:any) => {
       if(kq['kq'] == 1){
         this.store.dispatch(incrementCart())
+        alert('Thêm giỏ hàng thành công!')
       }else {
         alert(kq['err'])
         // console.log(kq['err'])
@@ -112,6 +113,7 @@ export class ShopComponent implements OnInit {
     .subscribe((kq:any) => {
       if(kq['kq'] == 1){
         this.store.dispatch(incrementLike())
+        alert('Đã thích sản phẩm.')
       }else {
         alert(kq['err'])
         // console.log(kq['err'])

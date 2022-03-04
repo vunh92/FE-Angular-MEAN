@@ -2,9 +2,18 @@
     vertical-align: middle;
 }
 
+.cart-list {
+	display: flex;
+}
+
+
 .cart-list__title {
 	margin-bottom: 50px;
 	text-align: center;
+}
+
+.cart-list__pay {
+	text-align: right;
 }
 
 .cart-list__title h2 {

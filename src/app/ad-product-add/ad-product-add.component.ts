@@ -6,6 +6,11 @@ import { AppService } from '../app.service';
 // Gọi form lấy dữ liệu và kiểm tra dữ liệu bên trong file .ts
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
+import { Product } from '../Models/product';
+
+// Gọi ActivatedRoute, ParamMap
+import { Router, Event as NavigationEvent } from '@angular/router';
+
 declare var $:any
 
 @Component({
@@ -17,52 +22,54 @@ declare var $:any
 export class AdProductAddComponent implements OnInit {
 
   // Khai báo sử dụng và kiểm tra dữ liệu trong file ts
-  product = new FormGroup({
+  productForm = new FormGroup({
     name: new FormControl('', [Validators.minLength(3), Validators.required]),
     price: new FormControl('', [Validators.minLength(3), Validators.pattern('[0-9]*'), Validators.required]),
     parent: new FormControl('', [Validators.required]),
     discount: new FormControl('', [Validators.maxLength(2), Validators.pattern('[0-9]*')]),
-    type: new FormControl('', []),
-    note: new FormControl('', []),
     detail: new FormControl('', []),
-    detail2: new FormControl('', []),
-    detail3: new FormControl('', []),
-    img: new FormControl('', [Validators.minLength(3)])
+    image: new FormControl('', [Validators.minLength(3)]),
+    image2: new FormControl('', [Validators.minLength(3)]),
+    image3: new FormControl('', [Validators.minLength(3)])
   })
 
 
-  get name() { return this.product.controls.name; }
-  get price() { return this.product.controls.price; }
-  get parent() { return this.product.controls.parent; }
-  get discount() { return this.product.controls.discount; }
-  get type() { return this.product.controls.type; }
-  get note() { return this.product.controls.note; }
-  get detail() { return this.product.controls.detail; }
-  get detail2() { return this.product.controls.detail2; }
-  get detail3() { return this.product.controls.detail3; }
-  get image() { return this.product.controls.image; }
+  get name() { return this.productForm.controls.name; }
+  get price() { return this.productForm.controls.price; }
+  get parent() { return this.productForm.controls.parent; }
+  get discount() { return this.productForm.controls.discount; }
+  get detail() { return this.productForm.controls.detail; }
+  get image() { return this.productForm.controls.image; }
+  get image2() { return this.productForm.controls.image2; }
+  get image3() { return this.productForm.controls.image3; }
 
-  constructor(private service: AppService) {}
+  categoryParentList:any = []
+
+  constructor(private service: AppService, private router: Router) {}
 
   get_value_form(data: any) {
     console.log(data)
-    // this.service
-    // .send_data_contact(data)
-    // .subscribe((kq:any)=>{
-    //   if(kq['kq'] == 1){
-    //     // báo thành công
-    //     // this.isAlert = {
-    //     //   type: 'success',
-    //     //   message: 'Thành công'
-    //     // }
-    //   }else{
-    //     // báo thất bại
-    //     // this.isAlert = {
-    //     //   type: 'danger',
-    //     //   message: kq['err']
-    //     // }
-    //   }
-    // })
+    data.slug = this.changToSlug(data.name)
+    var galleryList = []
+    galleryList.push(data.image, data.image2, data.image3)
+    data.gallery = galleryList
+    var product = new Product(null, data.name, data.slug, data.parent._id, data.price,
+      data.discount, data.gallery, data.status, data.detail, data.image, new Date(), null)
+    console.log(product)
+    this.service
+    .api_add_item_product(product)
+    .subscribe((kq:any)=>{
+      if(kq['kq'] == 1){
+        // báo thành công
+        alert('Đã thêm ' + kq['data'].name)
+        window.location.replace('/admin/product')
+      }else{
+        // báo thất bại
+        alert('Thất bại!')
+      }
+      
+      console.log(kq)
+    })
   }
 
   changToSlug(str:any) {
@@ -95,8 +102,21 @@ export class AdProductAddComponent implements OnInit {
      return str;
   }
 
+  get_category_parent() {
+    this.service.api_get_category_list()
+    .subscribe((kq:any) => {
+      // console.log(kq)
+      if(kq['kq']==1){
+        kq['data'].forEach(element => {
+          if(element.parent != null)
+            this.categoryParentList.push(element)
+        });
+      }
+    })
+  }
 
   ngOnInit(): void {
+    this.get_category_parent()
   }
 
 }

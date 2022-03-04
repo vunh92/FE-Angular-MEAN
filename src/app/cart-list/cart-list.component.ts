@@ -12,6 +12,11 @@ import { incrementCart , decrementCart , resetCart  } from '../Store/Actions/cou
 // Gọi Service
 import { AppService } from '../app.service';
 
+// Gọi ActivatedRoute, ParamMap
+import { Router, Event as NavigationEvent } from '@angular/router';
+
+import { idUserGlobal } from '../app.component';
+
 @Component({
   selector: 'app-cart-list',
   templateUrl: './cart-list.component.html',
@@ -24,7 +29,7 @@ export class CartListComponent implements OnInit {
   id_user:any = ''
   isEdit:any = false
 
-  constructor(private store: Store<{ cart: [] }>, private service: AppService) {
+  constructor(private store: Store<{ cart: [] }>, private service: AppService, private router: Router) {
     // this.cart$ = store.select('cart');
   }
 
@@ -39,7 +44,7 @@ export class CartListComponent implements OnInit {
   //   qty: 0
   // }];
 
-  array:any
+  cartList:any = []
 
   // update={ id_product: '', name: '', qty: 0, price: 0 }
   update:any
@@ -75,9 +80,9 @@ export class CartListComponent implements OnInit {
       .subscribe((kq:any) => {
         if(kq['kq']==1){
           // this.get_cart_list()
-          var index = this.array.indexOf(item);
+          var index = this.cartList.indexOf(item);
           if (index !== -1) {
-            this.array.splice(index, 1);
+            this.cartList.splice(index, 1);
             this.store.dispatch(decrementCart())
             this.isEdit = false
           }
@@ -102,16 +107,40 @@ export class CartListComponent implements OnInit {
     this.service
       .get_cart_list(this.id_user)
       .subscribe((kq:any) => {
-        this.array = kq['data']
+        if(kq['kq']==1){
+          this.cartList = kq['data']
+        }
         // console.log(kq['data'])
       })
+  }
+
+  payment(){
+    var array_cart = [], shipObj:any, pay = 0
+    this.cartList.forEach(element => {
+      array_cart.push(element._id)
+      pay+=element.price*element.qty
+    });
+    shipObj = {id_user: this.id_user, pay: pay, array_cart: array_cart}
+    this.service
+      .api_add_ship(shipObj)
+      .subscribe((kq:any) => {
+        if(kq['kq']==1){
+          this.cartList=[]
+          this.store.dispatch(resetCart())
+          alert('Đang vận chuyển!')
+          window.location.replace('/ship')
+        }else{
+          alert(kq['err'])
+        }
+        console.log(kq)
+    })
   }
   
   ngOnInit(): void {
     this.id_user = localStorage.getItem('key_id_user')
     // this.get_cart()
     // .subscribe((kq:any)=>{
-    //   this.array = kq;
+    //   this.cartList = kq;
     // });
 
     this.get_cart_list()

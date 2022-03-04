@@ -1,0 +1,42 @@
+<div class="col-12 ship">
+    <div class="col-10 ship__title base-padding">
+        <h2>Vận Chuyển</h2>
+    </div>
+    <!-- <div class="col-2 ad-ship__bt base-padding">
+        <a routerLink="/admin/ship/add" class="btn btn-sm btn-info">
+            <i class="fa fa-plus"></i> Add
+        </a>
+        &nbsp;
+        <button type="button" class="btn btn-sm btn-danger">
+            <i class="fa fa-trash"></i>
+            (<span id="trash">0</span>)
+        </button>
+    </div> -->
+</div>
+
+<div class="col-12 ad-ship-table">
+    <div class="table-responsive base-padding-vertical">
+        <table class="table table-striped jambo_table bulk_action">
+            <thead>
+                <tr class="">
+                    <th scope="col" class="" style="width: 10%;">STT </th>
+                    <th scope="col" class="" style="width: 35%;">Mã Đơn Hàng</th>
+                    <th scope="col" class="" style="width: 17%;">Tổng Tiền</th>
+                    <th scope="col" class="" style="width: 23%;">Ngày Giao</th>
+                    <th scope="col" class="" style="width: 15%;">Trạng Thái</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr class="" *ngFor="let ship of shipList; let i = index">
+                    <td class=" ">{{i+1}}</td>
+                    <td class=" ">{{ship._id}}</td>
+                    <td class=" ">{{ship.pay | number:'1.0-2'}}</td>
+                    <td class=" ">{{ship.date_created | date:'fullDate'}}</td>
+                    <td class=" ">{{ship.status ? 'Đã giao' : 'Đang giao'}}</td>
+                </tr>
+                    
+            </tbody>
+        </table>
+    </div>
+</div>
